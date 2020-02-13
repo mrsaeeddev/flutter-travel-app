@@ -11,18 +11,6 @@ class HotelScreen extends StatefulWidget {
 }
 
 class _HotelScreenState extends State<HotelScreen> {
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(
-      stars,
-      style: TextStyle(fontSize: 10.0),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +18,8 @@ class _HotelScreenState extends State<HotelScreen> {
       Stack(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.width,
+            height: 150,
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
                 boxShadow: [
@@ -59,65 +48,20 @@ class _HotelScreenState extends State<HotelScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: Icon(Icons.close),
                       iconSize: 30.0,
                       color: Colors.black26,
                       onPressed: () => Navigator.pop(context)),
                   Row(children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.search),
+                      icon: Icon(Icons.bookmark),
                       iconSize: 30.0,
-                      color: Colors.black26,
-                      onPressed: () => print('OnPressed'),
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.sortAmountDown),
-                      iconSize: 25.0,
                       color: Colors.black26,
                       onPressed: () => print('OnPressed'),
                     ),
                   ])
                 ]),
           ),
-          Positioned(
-            bottom: 20.0,
-            left: 20.0,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(widget.hotel.name,
-                      style: TextStyle(
-                        fontSize: 35.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 2.0,
-                      )),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.locationArrow,
-                        size: 15.0,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 5.0),
-                      Text(widget.hotel.name,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1.2,
-                          ))
-                    ],
-                  )
-                ]),
-          ),
-          Positioned(
-              right: 20,
-              bottom: 20,
-              child: Icon(
-                Icons.location_on,
-                color: Colors.white70,
-              ))
         ],
       ),
     ]));
