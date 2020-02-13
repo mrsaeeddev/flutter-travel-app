@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selected_index = 0;
+  int _selectedIndex = 0;
   int _currentTab = 0;
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
@@ -22,22 +22,21 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
         onTap: () {
           setState(() {
-            _selected_index = index;
+            _selectedIndex = index;
           });
-          print(_selected_index);
         },
         child: Container(
           height: 60.0,
           width: 60.0,
           decoration: BoxDecoration(
-              color: _selected_index == index
+              color: _selectedIndex == index
                   ? Theme.of(context).accentColor
                   : Color(0xFFE7EBEE),
               borderRadius: BorderRadius.circular(30.0)),
           child: Icon(
             _icons[index],
             size: 25.0,
-            color: _selected_index == index
+            color: _selectedIndex == index
                 ? Theme.of(context).primaryColor
                 : Color(0xFFB4C1C4),
           ),
@@ -84,13 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.local_pizza, size: 30),
                 title: SizedBox.shrink()),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person, size: 30),
-                // CircleAvatar(
-                //   radius: 15.0,
-                //   backgroundImage: NetworkImage(
-                //       'https://image.flaticon.com/icons/png/512/21/21104.png'),
-                // ),
-                title: SizedBox.shrink())
+                icon: Icon(Icons.person, size: 30), title: SizedBox.shrink())
           ]),
     );
   }
