@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_ui_starter/screens/home_screen.dart';
 import 'package:flutter_travel_ui_starter/screens/splash_screen.dart';
+
+import 'login_screen.dart';
 
 class SplashScreenState extends State<SplashScreen> {
   @override
@@ -17,8 +18,8 @@ class SplashScreenState extends State<SplashScreen> {
   }
 
   onDoneLoading() async {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LogInScreen()));
   }
 
   @override
